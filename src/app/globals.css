@@ -5,6 +5,12 @@
 @tailwind utilities;
 
 :root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 255, 255, 255;
+  --background-end-rgb: 255, 255, 255;
+}
+
+.dark {
   --foreground-rgb: 255, 255, 255;
   --background-start-rgb: 0, 0, 0;
   --background-end-rgb: 0, 0, 0;
@@ -12,7 +18,7 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: #000000;
+  background: rgb(var(--background-start-rgb));
   font-family: 'Space Grotesk', sans-serif;
 }
 
@@ -22,16 +28,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #000;
+  @apply bg-gray-100 dark:bg-black;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #333;
+  @apply bg-gray-300 dark:bg-gray-700;
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #444;
+  @apply bg-gray-400 dark:bg-gray-600;
 }
 
 /* Smooth scrolling */
@@ -41,7 +47,7 @@ html {
 
 /* Form styles */
 input, textarea {
-  @apply bg-black border border-gray-800 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-white placeholder-gray-500;
+  @apply bg-white dark:bg-black border border-gray-300 dark:border-gray-800 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-500;
 }
 
 /* Button hover effects */
@@ -56,14 +62,14 @@ a {
 
 /* Interactive container */
 .interactive-container {
-  @apply relative bg-black border border-gray-800 rounded-lg p-6 transition-all duration-300 hover:border-white/20 hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1;
+  @apply relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1;
   position: relative;
   overflow: hidden;
 }
 
 .interactive-container::before {
   content: '';
-  @apply absolute inset-0 rounded-lg border border-white/0 transition-all duration-300;
+  @apply absolute inset-0 rounded-lg border border-gray-200/0 dark:border-white/0 transition-all duration-300;
   position: absolute;
   top: 0;
   left: 0;
@@ -75,24 +81,12 @@ a {
 }
 
 .interactive-container:hover::before {
-  border-color: rgba(255, 255, 255, 0.1);
-  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  animation: borderGlow 2s linear infinite;
+  @apply border-gray-300 dark:border-white/10;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
 }
 
-@keyframes borderGlow {
-  0% {
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  }
-  50% {
-    border-color: rgba(255, 255, 255, 0.3);
-    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
-  }
-  100% {
-    border-color: rgba(255, 255, 255, 0.1);
-    box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
-  }
+.dark .interactive-container:hover::before {
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
 }
 
 /* Gradient text */
@@ -102,7 +96,7 @@ a {
 
 /* Section backgrounds */
 .section-bg {
-  @apply bg-black;
+  @apply bg-white dark:bg-black;
 }
 
 /* Glowing text */
@@ -112,5 +106,5 @@ a {
 
 /* Map container */
 .map-container {
-  @apply w-full h-[400px] rounded-lg overflow-hidden border border-gray-800;
+  @apply w-full h-[400px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800;
 }

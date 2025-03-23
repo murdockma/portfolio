@@ -7,9 +7,11 @@ import { useTheme } from './ThemeProvider';
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const { theme, toggleTheme } = useTheme();
 
   useEffect(() => {
+    setMounted(true);
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
     };
@@ -17,11 +19,16 @@ export default function Navbar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Prevent hydration mismatch
+  if (!mounted) {
+    return null;
+  }
+
   return (
     <nav
       className={`fixed w-full z-50 transition-all duration-300 ${
         isScrolled
-          ? 'bg-black/80 backdrop-blur-md shadow-lg'
+          ? 'bg-transparent'
           : 'bg-transparent'
       }`}
     >
@@ -31,25 +38,25 @@ export default function Navbar() {
           <div className="hidden md:flex items-center space-x-8">
             <Link
               href="#about"
-              className="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wider"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors text-sm uppercase tracking-wider"
             >
               About
             </Link>
             <Link
               href="#projects"
-              className="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wider"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors text-sm uppercase tracking-wider"
             >
               Projects
             </Link>
             <Link
               href="#contact"
-              className="text-gray-300 hover:text-white transition-colors text-sm uppercase tracking-wider"
+              className="text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors text-sm uppercase tracking-wider"
             >
               Contact
             </Link>
             <button
               onClick={toggleTheme}
-              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               {theme === 'dark' ? '🌞' : '🌙'}
             </button>
@@ -59,10 +66,10 @@ export default function Navbar() {
           <div className="md:hidden flex items-center">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className="p-2 rounded-lg bg-gray-800 hover:bg-gray-700 transition-colors"
+              className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 transition-colors"
             >
               <svg
-                className="h-6 w-6 text-gray-300"
+                className="h-6 w-6 text-gray-600 dark:text-gray-300"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
@@ -91,28 +98,28 @@ export default function Navbar() {
       {/* Mobile menu */}
       {isMobileMenuOpen && (
         <div className="md:hidden">
-          <div className="px-2 pt-2 pb-3 space-y-1 bg-black/95 backdrop-blur-md">
+          <div className="px-2 pt-2 pb-3 space-y-1 bg-white dark:bg-black/95 backdrop-blur-md">
             <Link
               href="#about"
-              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
+              className="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
             >
               About
             </Link>
             <Link
               href="#projects"
-              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
+              className="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
             >
               Projects
             </Link>
             <Link
               href="#contact"
-              className="block px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
+              className="block px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
             >
               Contact
             </Link>
             <button
               onClick={toggleTheme}
-              className="w-full text-left px-3 py-2 rounded-md text-gray-300 hover:text-white hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
+              className="w-full text-left px-3 py-2 rounded-md text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-sm uppercase tracking-wider"
             >
               {theme === 'dark' ? 'Light Mode' : 'Dark Mode'}
             </button>

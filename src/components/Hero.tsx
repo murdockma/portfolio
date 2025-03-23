@@ -8,8 +8,7 @@ const titles = [
   'Data Professional',
   'Tech Enthusiast',
   'Problem Solver',
-  'Innovation Seeker',
-  'Full Stack Developer'
+  'Innovation Seeker'
 ];
 
 export default function Hero() {
@@ -48,7 +47,7 @@ export default function Hero() {
   }, [typeText]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-black">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-black">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -88,11 +87,11 @@ export default function Hero() {
           className="space-y-8"
         >
           <div className="space-y-4">
-            <h1 className="text-4xl sm:text-6xl font-bold text-white">
+            <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white">
               Hi, I'm <span className="text-blue-500">Michael</span>
             </h1>
             <div className="h-8 sm:h-10">
-              <span className="text-xl sm:text-2xl text-gray-300">
+              <span className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
                 {currentText}
                 <span className="animate-pulse">|</span>
               </span>
@@ -108,7 +107,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 border border-gray-700 text-white rounded-lg hover:bg-white/10 transition-colors"
+              className="px-6 py-3 border border-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
             >
               Contact Me
             </a>
