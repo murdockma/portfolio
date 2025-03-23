@@ -37,7 +37,7 @@ const projects = [
     title: 'ParrotBar',
     description: 'A fun macOS app that puts animated party parrots in your menu bar.',
     technologies: ['Swift', 'macOS', 'System APIs', 'Network APIs'],
-    image: '/parrotbar.jpg',
+    image: '/parrotbar.png',
     link: 'https://apps.apple.com/us/app/parrotbar/id6618137282?mt=12',
     longDescription: 'I wanted to make my menu bar more fun while keeping it useful. ParrotBar shows fun party parrot animations and gives you quick access to system info.',
     features: [

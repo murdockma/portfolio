@@ -4,12 +4,13 @@ import "./globals.css";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import FloatingShapes from '@/components/FloatingShapes';
+import RaindropBackground from '@/components/RaindropBackground';
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Michael Chen - Software Engineer",
-  description: "Personal portfolio website showcasing my projects, skills, and experience.",
+  title: "Michael Chen - Portfolio",
+  description: "Personal portfolio website showcasing my projects and experience.",
 };
 
 export default function RootLayout({
@@ -19,9 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-white dark:bg-black text-gray-900 dark:text-white`} suppressHydrationWarning>
-        <FloatingShapes />
+      <body className={`${inter.className} bg-white dark:bg-black text-gray-900 dark:text-white font-['Quicksand']`} suppressHydrationWarning>
         <ThemeProvider>
+          <FloatingShapes />
+          <RaindropBackground />
           <Navbar />
           {children}
         </ThemeProvider>
