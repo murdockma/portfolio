@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
+import { useTheme } from './ThemeProvider';
 
 interface Shape {
   id: number;
@@ -39,10 +40,11 @@ const generateRandomPath = (size: number, seed: number): string => {
   return `M ${points.join(' L ')} Z`;
 };
 
-const generateShapes = (count: number): Shape[] => {
+const generateShapes = (count: number, theme: 'light' | 'dark'): Shape[] => {
   const shapes: Shape[] = [];
   for (let i = 0; i < count; i++) {
     const baseSeed = i + 1; // Use index as base seed
+    const opacity = theme === 'dark' ? 0.1 : 0.2;
     shapes.push({
       id: i,
       path: generateRandomPath(200 + seededRandom(baseSeed) * 200, baseSeed),
@@ -50,9 +52,11 @@ const generateShapes = (count: number): Shape[] => {
       x: seededRandom(baseSeed + 2) * 100,
       y: seededRandom(baseSeed + 3) * 100,
       rotation: seededRandom(baseSeed + 4) * 360,
-      color: `rgba(${seededRandom(baseSeed + 5) * 255}, ${seededRandom(baseSeed + 6) * 255}, ${seededRandom(baseSeed + 7) * 255}, 0.4)`,
-      moveX: (seededRandom(baseSeed + 8) - 0.5) * 800, // Increased from 400 to 800 for more horizontal spread
-      moveY: (seededRandom(baseSeed + 9) - 0.5) * 200, // Reduced from 400 to 200 for less vertical movement
+      color: theme === 'dark' 
+        ? `rgba(255, 255, 255, ${opacity})`
+        : `rgba(0, 0, 0, ${opacity})`,
+      moveX: (seededRandom(baseSeed + 8) - 0.5) * 800,
+      moveY: (seededRandom(baseSeed + 9) - 0.5) * 200,
       scale: 0.6 + seededRandom(baseSeed + 10) * 0.8,
     });
   }
@@ -64,7 +68,8 @@ export default function FloatingShapes() {
   const { scrollYProgress } = useScroll({
     layoutEffect: false
   });
-  const shapes = generateShapes(12);
+  const { theme } = useTheme();
+  const shapes = generateShapes(12, theme);
 
   // Create transforms for all shapes outside the map function
   const transforms = shapes.map(shape => ({
@@ -132,7 +137,7 @@ export default function FloatingShapes() {
               width={shape.size}
               height={shape.size}
               viewBox="0 0 200 200"
-              style={{ opacity: 0.4 }}
+              style={{ opacity: theme === 'dark' ? 0.3 : 0.5 }}
             >
               <path
                 d={shape.path}

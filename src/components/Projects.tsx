@@ -10,9 +10,9 @@ import Image from 'next/image';
 const projects = [
   {
     title: 'Personal Finance Data Pipeline',
-    description: 'Built a pipeline that automatically pulls all my financial data into one place.',
+    description: 'A pipeline that automatically pulls all my financial data into one place.',
     technologies: ['Python', 'Terraform', 'BigQuery', 'Selenium', 'dbt', 'Looker Studio'],
-    image: '/finance-pipeline.jpg',
+    image: '/pipeline.png',
     link: '#',
     longDescription: 'I got tired of manually checking different bank accounts and investment platforms, so I built a pipeline that does it all for me. Now I can see all my financial data in one dashboard.',
     features: [
@@ -60,9 +60,9 @@ const projects = [
   },
   {
     title: 'Portfolio Website',
-    description: 'The site you\'re looking at right now! Built to showcase my work in a fun way.',
+    description: 'The site you\'re looking at right now! Built to showcase a bit about me.',
     technologies: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Framer Motion'],
-    image: '/portfolio.jpg',
+    image: '/website.png',
     link: '#',
     longDescription: 'I wanted to build a portfolio that was both professional and engaging. This site features smooth animations, interactive elements, and a clean design that works well on all devices.',
     features: [
@@ -90,7 +90,7 @@ export default function Projects() {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
-    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black relative overflow-hidden">
+    <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -152,7 +152,8 @@ export default function Projects() {
                   src={project.image}
                   alt={project.title}
                   fill
-                  className="object-cover transition-transform duration-300 group-hover:scale-110"
+                  className="object-contain transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
@@ -160,7 +161,7 @@ export default function Projects() {
                 <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2 group-hover:text-blue-500 dark:group-hover:text-blue-400 transition-colors">
                   {project.title}
                 </h3>
-                <p className="text-gray-600 dark:text-gray-400 mb-4 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
+                <p className="text-gray-700 dark:text-gray-400 mb-4 group-hover:text-gray-700 dark:group-hover:text-gray-300 transition-colors">
                   {project.description}
                 </p>
                 <div className="flex flex-wrap gap-2 mb-4">
@@ -173,7 +174,7 @@ export default function Projects() {
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center text-blue-500 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
+                <div className="flex items-center text-gray-700 dark:text-gray-400 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors">
                   <span className="text-sm mr-2">View Details</span>
                   <svg 
                     className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 

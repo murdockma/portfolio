@@ -8,9 +8,10 @@ interface ModalProps {
   onClose: () => void;
   children: React.ReactNode;
   title: string;
+  size?: 'small' | 'large';
 }
 
-export default function Modal({ isOpen, onClose, children, title }: ModalProps) {
+export default function Modal({ isOpen, onClose, children, title, size = 'large' }: ModalProps) {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = 'hidden';
@@ -41,15 +42,19 @@ export default function Modal({ isOpen, onClose, children, title }: ModalProps) 
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.95 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-4 sm:inset-8 md:inset-12 lg:inset-16 z-50"
+            className={`fixed z-50 ${
+              size === 'small' 
+                ? 'inset-[5%] sm:inset-[8%] md:inset-[12%] lg:inset-[15%]' 
+                : 'inset-4 sm:inset-8 md:inset-12 lg:inset-16'
+            }`}
           >
-            <div className="relative w-full h-full bg-gray-900/80 backdrop-blur-md rounded-2xl border border-gray-700/50 shadow-2xl">
+            <div className="relative w-full h-full bg-white/80 dark:bg-gray-900/80 backdrop-blur-md rounded-2xl border border-gray-200/50 dark:border-gray-700/50 shadow-2xl flex flex-col">
               {/* Header */}
-              <div className="flex items-center justify-between p-6 border-b border-gray-700/50">
-                <h2 className="text-2xl font-bold text-white">{title}</h2>
+              <div className="flex items-center justify-between p-6 border-b border-gray-200/50 dark:border-gray-700/50">
+                <h2 className="text-2xl font-bold text-gray-900 dark:text-white">{title}</h2>
                 <button
                   onClick={onClose}
-                  className="text-gray-400 hover:text-white transition-colors"
+                  className="text-gray-500 hover:text-gray-900 dark:text-gray-400 dark:hover:text-white transition-colors"
                 >
                   <svg
                     className="w-6 h-6"
@@ -68,7 +73,7 @@ export default function Modal({ isOpen, onClose, children, title }: ModalProps) 
               </div>
 
               {/* Content */}
-              <div className="p-6 h-[calc(100%-4rem)] overflow-hidden">
+              <div className="flex-1 overflow-y-auto p-6">
                 {children}
               </div>
             </div>

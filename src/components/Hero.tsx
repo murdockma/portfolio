@@ -47,9 +47,9 @@ export default function Hero() {
   }, [typeText]);
 
   return (
-    <section className="min-h-screen flex items-center justify-center relative overflow-hidden bg-white dark:bg-black">
+    <section className="min-h-screen flex items-center justify-center relative overflow-hidden">
       {/* Animated background elements */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* <div className="absolute inset-0 overflow-hidden">
         <motion.div
           className="absolute w-[600px] h-[600px] bg-blue-500/5 rounded-full blur-3xl"
           animate={{
@@ -74,7 +74,7 @@ export default function Hero() {
             ease: "linear"
           }}
         />
-      </div>
+      </div> */}
 
       {/* Floating particles */}
       <ParticleContainer count={100} color="rgba(255, 255, 255, 0.4)" size={2.5} />
@@ -91,7 +91,7 @@ export default function Hero() {
               Hi, I'm <span className="text-blue-500">Michael</span>
             </h1>
             <div className="h-8 sm:h-10">
-              <span className="text-xl sm:text-2xl text-gray-600 dark:text-gray-300">
+              <span className="text-xl sm:text-2xl text-gray-800 dark:text-gray-300">
                 {currentText}
                 <span className="animate-pulse">|</span>
               </span>
@@ -107,7 +107,7 @@ export default function Hero() {
             </a>
             <a
               href="#contact"
-              className="px-6 py-3 border border-gray-700 text-gray-700 dark:text-white rounded-lg hover:bg-gray-100 dark:hover:bg-white/10 transition-colors"
+              className="px-6 py-3 border border-white text-white rounded-lg hover:bg-white/10 dark:hover:bg-white/10 transition-colors"
             >
               Contact Me
             </a>

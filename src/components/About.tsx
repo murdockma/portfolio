@@ -12,13 +12,12 @@ const skills = [
   {
     name: 'SQL & Data Modeling',
     level: 95,
-    experience: 'I love working with SQL and building data models that make sense. I\'ve got a knack for creating scalable pipelines that actually work in the real world.',
+    experience: 'I enjoy working with SQL and building data models that make sense. I focus on creating scalable pipelines that support a wide range of business questions.',
     projects: [
       'Built some cool dbt models for telephony analytics',
-      'Set up reliable Gold Datasets that everyone trusts',
+      'Set up reliable Gold Datasets at various companies',
       'Made reporting systems that give real-time insights'
-    ],
-    certifications: ['dbt Certified Developer']
+    ]
   },
   {
     name: 'Python & ETL',
@@ -79,19 +78,20 @@ const experiences = [
     company: 'Angi',
     period: 'June 2023 - Present',
     location: 'Denver',
-    description: 'I lead data projects that make a real difference in how the business runs.',
+    description: 'I lead data projects that improve how pros connect with customers and grow their businesses.',
     responsibilities: [
       'Built dbt models that make telephony analytics work better',
       'Created a pipeline that brings Google Search data into Snowflake',
       'Made LookML explores and dashboards that people actually use',
-      'Helped optimize the affiliate program with better scoring'
+      'Helped optimize the affiliate program with better scoring and reimbursement frameworks'
     ],
     achievements: [
       'Made data processing 30% faster and cut call abandonment by 8%',
       'Got 13% more service requests converted',
-      'Found and fixed $2.5MM in revenue issues, adding $800K in profit'
+      'Found and fixed $2.5MM in revenue issues, and added over $1MM in profit'
     ],
-    technologies: ['dbt', 'Snowflake', 'Looker', 'Python', 'SQL']
+    technologies: ['dbt', 'Snowflake', 'Looker', 'Python', 'SQL'],
+    image: '/angi.png'
   },
   {
     id: 'handshake',
@@ -102,14 +102,15 @@ const experiences = [
     description: 'I worked on making data infrastructure that helps students find jobs.',
     responsibilities: [
       'Set up reliable Gold Datasets using dbt',
-      'Built Airflow DAGs that handle our data transformations',
+      'Built Airflow DAGs that orchestrate our data transformations',
       'Created LookML explores that help analyze the job market'
     ],
     achievements: [
       'Made dataset processing 15% faster',
       'Helped 8% more students find jobs'
     ],
-    technologies: ['dbt', 'Airflow', 'Looker', 'SQL', 'Python']
+    technologies: ['dbt', 'Airflow', 'Looker', 'SQL', 'Python'],
+    image: '/handshake.png'
   },
   {
     id: 'bci',
@@ -128,7 +129,8 @@ const experiences = [
       'Cut costs by 5%',
       'Made call center response times 15% faster'
     ],
-    technologies: ['Python', 'SQL', 'Statistical Analysis']
+    technologies: ['Python', 'Scala', 'Spark', 'SQL', 'Tableau'],
+    image: '/bci.png'
   }
 ];
 
@@ -137,7 +139,7 @@ export default function About() {
   const [selectedExperience, setSelectedExperience] = useState<number | null>(null);
 
   return (
-    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black relative overflow-hidden">
+    <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Floating particles */}
       <div style={{ zIndex: -1 }}>
         <ParticleContainer count={40} color="rgba(0, 0, 0, 0.05) dark:rgba(255, 255, 255, 0.05)" size={1.5} />
@@ -153,9 +155,10 @@ export default function About() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
-            I'm a data geek who loves turning complex information into useful insights. 
-            I build data pipelines that work, create models that make sense, and help teams make better decisions with data.
+          <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
+          I love solving problems, building things, and making sense of complex information. 
+          Whether it's working with data, developing new ideas, or optimizing systems,
+          I'm always looking for ways to improve and create.
           </p>
         </motion.div>
 
@@ -166,15 +169,19 @@ export default function About() {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="relative h-[400px] rounded-lg overflow-hidden"
+            className="relative h-[500px] rounded-lg overflow-hidden"
           >
-            <Image
-              src="/profile.jpg"
-              alt="Michael Chen"
-              fill
-              className="object-cover"
-              priority
-            />
+            {/* Profile Image */}
+            <div className="relative w-full h-full rounded-2xl overflow-hidden">
+              <div className="absolute inset-0 bg-white/10 dark:bg-gray-900/20" />
+              <Image
+                src="/profile.png"
+                alt="Michael Murdock"
+                fill
+                className="object-contain"
+                priority
+              />
+            </div>
           </motion.div>
           <motion.div
             initial={{ opacity: 0, x: 20 }}
@@ -185,15 +192,15 @@ export default function About() {
           >
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">My Journey</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
                 I'm passionate about analytics engineering and data design. I specialize in building scalable data models, 
                 creating intuitive dashboards, and designing data architectures that make complex information accessible and actionable.
               </p>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-gray-700 dark:text-gray-300 mb-4">
                 My approach combines technical expertise with a deep understanding of business needs. 
                 I focus on creating data solutions that are not just powerful, but also elegant and user-friendly.
               </p>
-              <p className="text-gray-600 dark:text-gray-300">
+              <p className="text-gray-700 dark:text-gray-300">
                 Outside of data, I enjoy hiking Colorado's trails, playing chess and video games, and exploring geospatial data visualization. 
                 I'm always excited to find new ways to combine my interests in geography and data.
               </p>
@@ -201,12 +208,12 @@ export default function About() {
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-lg">
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Location</h4>
-                <p className="text-gray-600 dark:text-gray-300">Denver, CO</p>
+                <p className="text-gray-700 dark:text-gray-300">Denver, CO</p>
               </div>
               <div className="p-4 bg-white/20 dark:bg-gray-900/20 backdrop-blur-sm rounded-lg">
                 <h4 className="text-lg font-semibold text-gray-900 dark:text-white mb-2">Education</h4>
-                <p className="text-gray-600 dark:text-gray-300">BS Computer Science</p>
-                <p className="text-gray-500 dark:text-gray-400 text-sm">University of Colorado Boulder</p>
+                <p className="text-gray-700 dark:text-gray-300">BS Computer Science</p>
+                <p className="text-gray-600 dark:text-gray-400 text-sm">University of Colorado Boulder</p>
               </div>
             </div>
           </motion.div>
@@ -237,8 +244,8 @@ export default function About() {
                   <div className="flex justify-between items-start">
                     <div className="flex-1">
                       <div className="flex justify-between items-center mb-2">
-                        <span className="text-gray-600 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{skill.name}</span>
-                        <span className="text-gray-500 dark:text-gray-400">{skill.level}%</span>
+                        <span className="text-gray-800 dark:text-gray-300 font-medium group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{skill.name}</span>
+                        <span className="text-gray-700 dark:text-gray-400">{skill.level}%</span>
                       </div>
                       <div className="relative w-full h-2 bg-gray-800 rounded-full overflow-hidden">
                         <motion.div
@@ -250,7 +257,7 @@ export default function About() {
                         />
                       </div>
                     </div>
-                    <div className="flex items-center text-gray-500 group-hover:text-gray-300 transition-colors ml-4">
+                    <div className="flex items-center text-gray-700 group-hover:text-gray-900 transition-colors ml-4">
                       <svg 
                         className="w-5 h-5 transform group-hover:translate-x-1 transition-transform" 
                         fill="none" 
@@ -293,11 +300,11 @@ export default function About() {
                 >
                   <div className="flex justify-between items-start">
                     <div>
-                      <h4 className="text-lg font-semibold text-gray-600 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{exp.title}</h4>
-                      <p className="text-gray-500 dark:text-gray-400">{exp.company} • {exp.period}</p>
-                      <p className="text-gray-500 dark:text-gray-400 mt-2">{exp.description}</p>
+                      <h4 className="text-lg font-semibold text-gray-800 dark:text-gray-300 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">{exp.title}</h4>
+                      <p className="text-gray-700 dark:text-gray-400">{exp.company} • {exp.period}</p>
+                      <p className="text-gray-700 dark:text-gray-400 mt-2">{exp.description}</p>
                     </div>
-                    <div className="flex items-center text-gray-500 group-hover:text-gray-300 transition-colors">
+                    <div className="flex items-center text-gray-700 dark:text-white/40 group-hover:text-black dark:group-hover:text-white transition-colors">
                       <span className="text-sm mr-2">View Details</span>
                       <svg 
                         className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" 
@@ -326,6 +333,7 @@ export default function About() {
         isOpen={selectedSkill !== null}
         onClose={() => setSelectedSkill(null)}
         title={selectedSkill !== null ? skills[selectedSkill].name : ''}
+        size="small"
       >
         {selectedSkill !== null && (
           <SkillDetail skill={skills[selectedSkill]} />
@@ -337,6 +345,7 @@ export default function About() {
         isOpen={selectedExperience !== null}
         onClose={() => setSelectedExperience(null)}
         title={selectedExperience !== null ? experiences[selectedExperience].title : ''}
+        size="large"
       >
         {selectedExperience !== null && (
           <ExperienceDetail experience={experiences[selectedExperience]} />

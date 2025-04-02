@@ -5,6 +5,7 @@ import { ThemeProvider } from "@/components/ThemeProvider";
 import Navbar from "@/components/Navbar";
 import FloatingShapes from '@/components/FloatingShapes';
 import RaindropBackground from '@/components/RaindropBackground';
+import BackgroundImage from '@/components/BackgroundImage';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -19,13 +20,18 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} bg-white dark:bg-black text-gray-900 dark:text-white font-['Quicksand']`} suppressHydrationWarning>
+    <html lang="en" suppressHydrationWarning className="relative">
+      <body className={`${inter.className} text-gray-900 dark:text-gray-300 font-['Quicksand'] relative min-h-screen text-base md:text-lg`} suppressHydrationWarning>
         <ThemeProvider>
-          <FloatingShapes />
-          <RaindropBackground />
-          <Navbar />
-          {children}
+          <BackgroundImage />
+          <div className="relative z-0">
+            <div className="relative">
+              <FloatingShapes />
+              <RaindropBackground />
+              <Navbar />
+              {children}
+            </div>
+          </div>
         </ThemeProvider>
       </body>
     </html>

@@ -6,26 +6,29 @@
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 255, 255, 255;
+  --foreground-rgb: 31, 41, 55;  /* Much darker gray for better visibility in light mode */
+  --background-start-rgb: transparent;
+  --background-end-rgb: transparent;
 }
 
 .dark {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 0, 0, 0;
-  --background-end-rgb: 0, 0, 0;
+  --foreground-rgb: 150, 150, 150;  /* Much darker gray for better visibility */
+  --background-start-rgb: transparent;
+  --background-end-rgb: transparent;
 }
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: rgb(var(--background-start-rgb));
+  background: transparent;
   font-family: 'Space Grotesk', sans-serif;
   font-weight: 400;
+  min-height: 100vh;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2, h3, h4, h5, h6 {
   font-weight: 500;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
 }
 
 /* Custom scrollbar */
@@ -53,9 +56,10 @@ html {
 
 /* Form styles */
 input, textarea {
-  @apply bg-white dark:bg-black border border-gray-300 dark:border-gray-800 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-gray-900 dark:text-white placeholder-gray-500;
+  @apply bg-white/90 dark:bg-black/90 border border-gray-300 dark:border-gray-800 rounded-md shadow-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200 text-slate-800 dark:text-gray-100 placeholder-gray-500;
   font-family: 'Quicksand', sans-serif;
   font-weight: 400;
+  text-shadow: none;
 }
 
 /* Button hover effects */
@@ -70,9 +74,10 @@ a {
 
 /* Interactive container */
 .interactive-container {
-  @apply relative bg-white dark:bg-black border border-gray-200 dark:border-gray-800 rounded-lg p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1;
+  @apply relative bg-white/90 dark:bg-black/90 border border-gray-200 dark:border-gray-800 rounded-lg p-6 transition-all duration-300 hover:border-gray-300 dark:hover:border-white/20 hover:shadow-[0_0_20px_rgba(0,0,0,0.1)] dark:hover:shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:-translate-y-1;
   position: relative;
   overflow: hidden;
+  backdrop-filter: blur(4px);
 }
 
 .interactive-container::before {
@@ -104,7 +109,7 @@ a {
 
 /* Section backgrounds */
 .section-bg {
-  @apply bg-white dark:bg-black;
+  @apply bg-transparent;
 }
 
 /* Glowing text */
@@ -115,4 +120,17 @@ a {
 /* Map container */
 .map-container {
   @apply w-full h-[400px] rounded-lg overflow-hidden border border-gray-200 dark:border-gray-800;
+}
+
+/* Add text shadow utility classes */
+.text-shadow-sm {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.text-shadow-md {
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+}
+
+.text-shadow-lg {
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }

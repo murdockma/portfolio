@@ -64,7 +64,7 @@ export default function Contact() {
   ];
 
   return (
-    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 bg-white dark:bg-black relative overflow-hidden">
+    <section id="contact" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
@@ -168,19 +168,29 @@ export default function Contact() {
             <div className="bg-white/10 dark:bg-gray-900/20 backdrop-blur-sm p-8 rounded-xl">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Contact Info</h3>
               <div className="space-y-4">
-                <p className="text-gray-600 dark:text-gray-300">
-                  <span className="font-medium">Email:</span> your.email@example.com
+                <p className="text-gray-800 dark:text-gray-300">
+                  <span className="font-medium">Email:</span> murdock.michael@gmail.com
                 </p>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-800 dark:text-gray-300">
                   <span className="font-medium">LinkedIn:</span>{' '}
-                  <a href="#" className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
-                    linkedin.com/in/yourprofile
+                  <a 
+                    href="https://linkedin.com/in/murdockma" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    linkedin.com/in/murdockma
                   </a>
                 </p>
-                <p className="text-gray-600 dark:text-gray-300">
+                <p className="text-gray-800 dark:text-gray-300">
                   <span className="font-medium">GitHub:</span>{' '}
-                  <a href="#" className="text-blue-500 hover:text-blue-600 dark:hover:text-blue-400">
-                    github.com/yourusername
+                  <a 
+                    href="https://github.com/murdockma" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-blue-600 hover:text-blue-600 dark:hover:text-blue-400"
+                  >
+                    github.com/murdockma
                   </a>
                 </p>
               </div>
