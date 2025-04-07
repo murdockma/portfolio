@@ -3,7 +3,16 @@
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
-const MapComponent = () => {
+interface MapProps {
+  center: [number, number];
+  zoom: number;
+  markers: Array<{
+    position: [number, number];
+    title: string;
+  }>;
+}
+
+const MapComponent = ({ center, zoom, markers }: MapProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<any>(null);
 

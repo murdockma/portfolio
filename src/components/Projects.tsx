@@ -82,7 +82,6 @@ const projects = [
 ];
 
 export default function Projects() {
-  const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
 
   return (
