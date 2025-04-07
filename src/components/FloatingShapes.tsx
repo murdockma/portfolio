@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { useTheme } from './ThemeProvider';
 
 interface Shape {
   id: number;

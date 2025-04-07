@@ -88,7 +88,7 @@ export default function Hero() {
         >
           <div className="space-y-4">
             <h1 className="text-4xl sm:text-6xl font-bold text-gray-900 dark:text-white">
-              Hi, I'm <span className="text-blue-500">Michael</span>
+              Hi, I&apos;m <span className="text-blue-500">Michael</span>
             </h1>
             <div className="h-8 sm:h-10">
               <span className="text-xl sm:text-2xl text-gray-800 dark:text-gray-300">

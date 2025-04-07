@@ -3,15 +3,6 @@
 import { useEffect, useRef } from 'react';
 import dynamic from 'next/dynamic';
 
-interface MapProps {
-  center: [number, number];
-  zoom: number;
-  markers: Array<{
-    position: [number, number];
-    title: string;
-  }>;
-}
-
 interface MapInstance {
   remove: () => void;
   setView: (center: [number, number], zoom: number) => void;
