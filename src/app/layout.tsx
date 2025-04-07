@@ -7,11 +7,15 @@ import FloatingShapes from '@/components/FloatingShapes';
 import RaindropBackground from '@/components/RaindropBackground';
 import BackgroundImage from '@/components/BackgroundImage';
 
-const inter = Inter({ subsets: ["latin"] });
+const inter = Inter({ 
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-inter",
+});
 
 export const metadata: Metadata = {
-  title: "Michael Chen - Portfolio",
-  description: "Personal portfolio website showcasing my projects and experience.",
+  title: "Michael Murdock - Data Engineer & Analytics Engineer",
+  description: "Portfolio of Michael Murdock, a Data Engineer and Analytics Engineer specializing in data infrastructure and visualization.",
 };
 
 export default function RootLayout({
@@ -20,14 +24,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" suppressHydrationWarning className="relative">
-      <body className={`${inter.className} text-gray-900 dark:text-gray-300 font-['Quicksand'] relative min-h-screen text-base md:text-lg`} suppressHydrationWarning>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <body className={`${inter.className} text-gray-900 dark:text-gray-300 font-['Quicksand'] relative min-h-screen text-base md:text-lg antialiased`} suppressHydrationWarning>
         <ThemeProvider>
-          <BackgroundImage />
-          <div className="relative z-0">
-            <div className="relative">
-              <FloatingShapes />
-              <RaindropBackground />
+          <div className="relative min-h-screen">
+            <BackgroundImage />
+            <FloatingShapes />
+            <div className="relative z-10">
               <Navbar />
               {children}
             </div>
