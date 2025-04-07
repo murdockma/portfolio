@@ -1,7 +1,6 @@
 'use client';
 
 import Image from 'next/image';
-import { Experience } from "../types/experience";
 
 interface ExperienceDetailProps {
   experience: {

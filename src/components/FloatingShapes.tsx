@@ -64,47 +64,18 @@ const generateShapes = (count: number, theme: 'light' | 'dark'): Shape[] => {
 };
 
 export default function FloatingShapes() {
-  const [mounted, setMounted] = useState(false);
-  const { scrollYProgress } = useScroll({
-    layoutEffect: false
-  });
-  const { theme } = useTheme();
-  const shapes = generateShapes(12, theme);
-
-  // Create transforms for all shapes outside the map function
-  const transforms = shapes.map(shape => ({
-    scrollX: useTransform(
-      scrollYProgress,
-      [0, 1],
-      [0, shape.moveX],
-      { clamp: true }
-    ),
-    scrollY: useTransform(
-      scrollYProgress,
-      [0, 1],
-      [0, shape.moveY],
-      { clamp: true }
-    ),
-    scale: useTransform(
-      scrollYProgress,
-      [0, 1],
-      [1, shape.scale],
-      { clamp: true }
-    )
-  }));
-  
+  const { scrollYProgress } = useScroll();
   const x1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
   const x2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
   const y1 = useTransform(scrollYProgress, [0, 1], [0, 50]);
   const y2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
-  
-  useEffect(() => {
-    setMounted(true);
-  }, []);
 
-  if (!mounted) {
-    return null;
-  }
+  const [shapes, setShapes] = useState<Shape[]>([]);
+
+  useEffect(() => {
+    const shapes = generateShapes(12, 'dark');
+    setShapes(shapes);
+  }, []);
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
@@ -122,51 +93,17 @@ export default function FloatingShapes() {
           y: y2,
         }}
       />
-      {shapes.map((shape, index) => (
+      {shapes.map((shape) => (
         <motion.div
           key={shape.id}
+          className={`absolute w-${shape.size} h-${shape.size} rounded-full ${
+            shape.color === 'blue' ? 'bg-blue-500/20' : 'bg-purple-500/20'
+          } blur-xl`}
           style={{
-            x: `${shape.x}%`,
+            left: `${shape.x}%`,
             top: `${shape.y}%`,
-            rotate: shape.rotation,
-            position: 'absolute',
-            willChange: 'transform',
-            transformOrigin: 'center center',
           }}
-          animate={{
-            y: [0, -20, 0],
-            rotate: [shape.rotation, shape.rotation + 10, shape.rotation],
-          }}
-          transition={{
-            duration: 8 + seededRandom(shape.id) * 8,
-            repeat: Infinity,
-            ease: "easeInOut",
-            times: [0, 0.5, 1],
-          }}
-        >
-          <motion.div
-            style={{
-              x: transforms[index].scrollX,
-              y: transforms[index].scrollY,
-              scale: transforms[index].scale,
-              willChange: 'transform',
-            }}
-          >
-            <svg
-              width={shape.size}
-              height={shape.size}
-              viewBox="0 0 200 200"
-              style={{ opacity: theme === 'dark' ? 0.3 : 0.5 }}
-            >
-              <path
-                d={shape.path}
-                fill={shape.color}
-                stroke={shape.color}
-                strokeWidth="2"
-              />
-            </svg>
-          </motion.div>
-        </motion.div>
+        />
       ))}
     </div>
   );

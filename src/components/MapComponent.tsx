@@ -17,7 +17,7 @@ interface MapInstance {
   setView: (center: [number, number], zoom: number) => void;
 }
 
-const MapComponent = ({ center, zoom, markers }: MapProps) => {
+const MapComponent = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   const mapInstanceRef = useRef<MapInstance | null>(null);
 
