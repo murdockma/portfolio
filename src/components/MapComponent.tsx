@@ -12,9 +12,14 @@ interface MapProps {
   }>;
 }
 
+interface MapInstance {
+  remove: () => void;
+  setView: (center: [number, number], zoom: number) => void;
+}
+
 const MapComponent = ({ center, zoom, markers }: MapProps) => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<MapInstance | null>(null);
 
   useEffect(() => {
     if (typeof window === 'undefined') return;
