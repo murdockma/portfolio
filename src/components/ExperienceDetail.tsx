@@ -1,7 +1,7 @@
 'use client';
 
-import { motion } from 'framer-motion';
 import Image from 'next/image';
+import { Experience } from "../types/experience";
 
 interface ExperienceDetailProps {
   experience: {

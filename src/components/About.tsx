@@ -56,7 +56,7 @@ const skills = [
     experience: 'I make data look good and tell stories. I build dashboards and reports that people actually use.',
     projects: [
       'Created LookML explores that make reporting easy',
-      'Built dashboards that show what\'s happening in real-time',
+      'Built dashboards that show what&apos;s happening in real-time',
       'Made reporting systems that track what matters'
     ]
   },
@@ -159,8 +159,8 @@ export default function About() {
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">About Me</h2>
           <p className="text-lg text-gray-700 dark:text-gray-300 max-w-2xl mx-auto">
           I love solving problems, building things, and making sense of complex information. 
-          Whether it's working with data, developing new ideas, or optimizing systems,
-          I'm always looking for ways to improve and create.
+          Whether it&apos;s working with data, developing new ideas, or optimizing systems,
+          I&apos;m always looking for ways to improve and create.
           </p>
         </motion.div>
 
@@ -195,16 +195,14 @@ export default function About() {
             <div>
               <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">My Journey</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                I'm passionate about analytics engineering and data design. I specialize in building scalable data models, 
-                creating intuitive dashboards, and designing data architectures that make complex information accessible and actionable.
+                I&apos;m passionate about analytics engineering and data design. I specialize in building scalable data models, creating intuitive dashboards, and designing data architectures that make complex information accessible and actionable.
               </p>
               <p className="text-gray-700 dark:text-gray-300 mb-4">
-                My approach combines technical expertise with a deep understanding of business needs. 
-                I focus on creating data solutions that are not just powerful, but also elegant and user-friendly.
+                My approach combines technical expertise with a deep understanding of business needs. I focus on creating data solutions that are not just powerful, but also elegant and user-friendly.
               </p>
               <p className="text-gray-700 dark:text-gray-300">
-                Outside of data, I enjoy hiking Colorado's trails, playing chess and video games, and exploring geospatial data visualization. 
-                I'm always excited to find new ways to combine my interests in geography and data.
+                Outside of data, I enjoy hiking Colorado&apos;s trails, playing chess and video games, and exploring geospatial data visualization. 
+                I&apos;m always excited to find new ways to combine my interests in geography and data.
               </p>
             </div>
             <div className="grid grid-cols-2 gap-4">

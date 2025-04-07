@@ -93,6 +93,11 @@ export default function FloatingShapes() {
     )
   }));
   
+  const x1 = useTransform(scrollYProgress, [0, 1], [0, 100]);
+  const x2 = useTransform(scrollYProgress, [0, 1], [0, -100]);
+  const y1 = useTransform(scrollYProgress, [0, 1], [0, 50]);
+  const y2 = useTransform(scrollYProgress, [0, 1], [0, -50]);
+  
   useEffect(() => {
     setMounted(true);
   }, []);
@@ -103,6 +108,20 @@ export default function FloatingShapes() {
 
   return (
     <div className="fixed inset-0 pointer-events-none overflow-hidden" style={{ zIndex: 1 }}>
+      <motion.div
+        className="absolute top-0 left-0 w-64 h-64 bg-blue-500/20 rounded-full blur-3xl"
+        style={{
+          x: x1,
+          y: y1,
+        }}
+      />
+      <motion.div
+        className="absolute bottom-0 right-0 w-64 h-64 bg-purple-500/20 rounded-full blur-3xl"
+        style={{
+          x: x2,
+          y: y2,
+        }}
+      />
       {shapes.map((shape, index) => (
         <motion.div
           key={shape.id}
