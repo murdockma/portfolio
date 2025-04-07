@@ -9,14 +9,14 @@ import Image from 'next/image';
 
 const projects = [
   {
-    title: 'Personal Finance Data Pipeline',
+    title: 'TransactTap',
     description: 'A pipeline that automatically pulls all my financial data into one place.',
     technologies: ['Python', 'Terraform', 'BigQuery', 'Selenium', 'dbt', 'Looker Studio'],
     image: '/pipeline.png',
-    link: '#',
+    link: 'https://github.com/murdockma/TransactTap',
     longDescription: 'I got tired of manually checking different bank accounts and investment platforms, so I built a pipeline that does it all for me. Now I can see all my financial data in one dashboard.',
     features: [
-      'Pulls data from 5+ different banks and investment platforms',
+      'Pulls data from several different banks and investment platforms',
       'Handles all the tricky stuff like CAPTCHAs and 2FA',
       'Shows everything in a clean dashboard',
       'Turns raw data into useful insights'
@@ -49,12 +49,10 @@ const projects = [
     ],
     challenges: [
       'Making sure the GIFs don\'t slow down your computer',
-      'Getting permission to access system info',
-      'Keeping the menu bar app running smoothly'
+      'Keeping the menu bar animations running smoothly'
     ],
     solutions: [
       'Optimized how the GIFs load and run',
-      'Built a clean way to handle system permissions',
       'Made it easy to customize settings'
     ],
   },
@@ -66,21 +64,19 @@ const projects = [
     link: '#',
     longDescription: 'I wanted to build a portfolio that was both professional and engaging. This site features smooth animations, interactive elements, and a clean design that works well on all devices.',
     features: [
-      'Cool floating shapes that move as you scroll',
-      'Smooth animations everywhere',
+      'Floating shapes that move as you scroll',
+      'Smooth animations',
       'Looks great on phones and computers',
       'Dark mode for late-night browsing',
       'Interactive cards that respond to your mouse'
     ],
     challenges: [
       'Making animations smooth without slowing things down',
-      'Keeping everything organized as the site grew',
-      'Making sure everyone can use it easily'
+      'Keeping everything organized as the site grew'
     ],
     solutions: [
       'Used Framer Motion to handle animations efficiently',
-      'Built reusable components for consistency',
-      'Added proper accessibility features'
+      'Built reusable components for consistency'
     ],
   },
 ];
@@ -131,7 +127,7 @@ export default function Projects() {
           className="text-center mb-16"
         >
           <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">Projects</h2>
-          <p className="text-lg text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+          <p className="text-lg text-gray-800 dark:text-gray-300 max-w-2xl mx-auto">
             Here are some of my recent projects that showcase my skills and experience.
           </p>
         </motion.div>

@@ -7,11 +7,12 @@ import ParticleContainer from './ParticleContainer';
 import Modal from './Modal';
 import SkillDetail from './SkillDetail';
 import ExperienceDetail from './ExperienceDetail';
+import { useTheme } from "./ThemeProvider";
 
 const skills = [
   {
     name: 'SQL & Data Modeling',
-    level: 95,
+    level: 85,
     experience: 'I enjoy working with SQL and building data models that make sense. I focus on creating scalable pipelines that support a wide range of business questions.',
     projects: [
       'Built some cool dbt models for telephony analytics',
@@ -21,38 +22,38 @@ const skills = [
   },
   {
     name: 'Python & ETL',
-    level: 90,
+    level: 80,
     experience: 'Python is my go-to for making data work. I build ETL pipelines that handle the heavy lifting and automate the boring stuff.',
     projects: [
-      'Made a Python pipeline that handles call center data like a champ',
+      'Made a Python pipeline that handles large-scale telephony data',
       'Built a personal finance pipeline that connects to multiple banks',
-      'Created predictive models that actually help with staffing'
+      'Created predictive models that help with staffing'
     ]
   },
   {
     name: 'Data Engineering',
-    level: 85,
-    experience: 'I work with all the cool data tools out there - Snowflake, BigQuery, Airflow. I make sure everything plays nice together.',
+    level: 75,
+    experience: 'I work with all the cool data tools out there - Snowflake, BigQuery, Airflow. I make sure everything works together.',
     projects: [
-      'Built a pipeline that makes Google Search data work with Snowflake',
-      'Set up Airflow to handle all our data transformations',
-      'Made LookML explores that help people find insights'
+      'Built a pipeline that makes Google Search data available in Snowflake',
+      'Set up Airflow to orchestrate data transformations',
+      'Created LookML explores that help people find insights'
     ]
   },
   {
     name: 'Cloud & DevOps',
-    level: 80,
+    level: 70,
     experience: 'I handle the cloud stuff and make sure our data infrastructure runs smoothly. Terraform and Docker are my friends.',
     projects: [
-      'Used Terraform to set up our data infrastructure',
-      'Worked with AWS, GCP, and Azure to get things done',
-      'Containerized our data apps to make them portable'
+      'Used Terraform to set up data infrastructure',
+      'Worked with AWS, GCP, and Azure',
+      'Containerized data apps to make them portable'
     ]
   },
   {
     name: 'Data Visualization',
-    level: 85,
-    experience: 'I make data look good and tell stories. I build dashboards that people actually want to use.',
+    level: 80,
+    experience: 'I make data look good and tell stories. I build dashboards and reports that people actually use.',
     projects: [
       'Created LookML explores that make reporting easy',
       'Built dashboards that show what\'s happening in real-time',
@@ -86,9 +87,9 @@ const experiences = [
       'Helped optimize the affiliate program with better scoring and reimbursement frameworks'
     ],
     achievements: [
-      'Made data processing 30% faster and cut call abandonment by 8%',
-      'Got 13% more service requests converted',
-      'Found and fixed $2.5MM in revenue issues, and added over $1MM in profit'
+      'Improved telephony data processing by 30%',
+      'Found and fixed $2.5MM in revenue issues',
+      'Added over $1MM in profit'
     ],
     technologies: ['dbt', 'Snowflake', 'Looker', 'Python', 'SQL'],
     image: '/angi.png'
@@ -137,6 +138,7 @@ const experiences = [
 export default function About() {
   const [selectedSkill, setSelectedSkill] = useState<number | null>(null);
   const [selectedExperience, setSelectedExperience] = useState<number | null>(null);
+  const { theme } = useTheme();
 
   return (
     <section id="about" className="py-20 px-4 sm:px-6 lg:px-8 relative overflow-hidden">
@@ -175,7 +177,7 @@ export default function About() {
             <div className="relative w-full h-full rounded-2xl overflow-hidden">
               <div className="absolute inset-0 bg-white/10 dark:bg-gray-900/20" />
               <Image
-                src="/profile.png"
+                src={theme === 'dark' ? "/profile.png" : "/profile.png"}
                 alt="Michael Murdock"
                 fill
                 className="object-contain"

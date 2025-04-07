@@ -1,18 +1,6 @@
 # Personal Portfolio Website
 
-A modern, responsive portfolio website built with Next.js, TypeScript, and Tailwind CSS. Features include dark mode, smooth animations, and interactive components.
-
-## Features
-
-- 🎨 Modern and clean design
-- 🌓 Dark/Light mode toggle
-- 📱 Fully responsive
-- ✨ Smooth animations with Framer Motion
-- 🎯 Interactive components
-- 📝 Contact form
-- 🔗 Social media links
-- 📊 Skills and experience showcase
-- 🖼️ Project portfolio
+A modern, responsive portfolio website to showcase some of my projects and career. Features include dark mode, smooth animations, and interactive components.
 
 ## Tech Stack
 
@@ -75,12 +63,8 @@ This website can be easily deployed to Vercel:
 
 1. Push your code to GitHub
 2. Import your repository in Vercel
-3. Deploy!
+3. Deploy
 
 ## License
 
-MIT License - feel free to use this template for your own portfolio!
-
-## Contributing
-
-Contributions are welcome! Please feel free to submit a Pull Request.
+MIT License - feel free to use this template for your own portfolio

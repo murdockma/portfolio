@@ -157,7 +157,7 @@ export default function Contact() {
           <div className="space-y-8">
             <div className="bg-white/10 dark:bg-gray-900/20 backdrop-blur-sm p-8 rounded-xl">
               <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-4">Location</h3>
-              <p className="text-gray-600 dark:text-gray-300 mb-4">
+              <p className="text-gray-800 dark:text-gray-300 mb-4">
                 Denver, Colorado
               </p>
               <div className="h-[300px] rounded-lg overflow-hidden">
