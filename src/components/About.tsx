@@ -18,7 +18,9 @@ const skills = [
       'Built some cool dbt models for telephony analytics',
       'Set up reliable Gold Datasets at various companies',
       'Made reporting systems that give real-time insights'
-    ]
+    ],
+    description: 'Expert in SQL and data modeling with a focus on creating scalable and efficient data pipelines.',
+    experienceLevel: 'Advanced'
   },
   {
     name: 'Python & ETL',
@@ -28,7 +30,9 @@ const skills = [
       'Made a Python pipeline that handles large-scale telephony data',
       'Built a personal finance pipeline that connects to multiple banks',
       'Created predictive models that help with staffing'
-    ]
+    ],
+    description: 'Proficient in Python for ETL processes and data automation.',
+    experienceLevel: 'Advanced'
   },
   {
     name: 'Data Engineering',
@@ -38,7 +42,9 @@ const skills = [
       'Built a pipeline that makes Google Search data available in Snowflake',
       'Set up Airflow to orchestrate data transformations',
       'Created LookML explores that help people find insights'
-    ]
+    ],
+    description: 'Skilled in data engineering with experience in modern data stack tools.',
+    experienceLevel: 'Intermediate'
   },
   {
     name: 'Cloud & DevOps',
@@ -48,7 +54,9 @@ const skills = [
       'Used Terraform to set up data infrastructure',
       'Worked with AWS, GCP, and Azure',
       'Containerized data apps to make them portable'
-    ]
+    ],
+    description: 'Experienced in cloud infrastructure and DevOps practices.',
+    experienceLevel: 'Intermediate'
   },
   {
     name: 'Data Visualization',
@@ -58,7 +66,9 @@ const skills = [
       'Created LookML explores that make reporting easy',
       'Built dashboards that show what&apos;s happening in real-time',
       'Made reporting systems that track what matters'
-    ]
+    ],
+    description: 'Skilled in creating effective data visualizations and dashboards.',
+    experienceLevel: 'Advanced'
   },
   {
     name: 'Machine Learning',
@@ -68,7 +78,9 @@ const skills = [
       'Built models that help predict staffing needs',
       'Created systems that forecast demand',
       'Made scoring systems that help find good leads'
-    ]
+    ],
+    description: 'Proficient in applying machine learning to solve business problems.',
+    experienceLevel: 'Intermediate'
   }
 ];
 
